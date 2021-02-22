@@ -4,3 +4,4 @@ COPY src /tmp/src/
 WORKDIR /tmp/
 RUN mvn package
 ENTRYPOINT ["sh", "-c", "java -jar /tmp/target/kanban.jar"]
+EXPOSE 8080/tcp
