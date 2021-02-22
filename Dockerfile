@@ -1,3 +1,6 @@
-FROM openjdk:8-alpine
-ADD target/*.jar kanban.jar
-ENTRYPOINT ["sh", "-c", "java -jar /kanban.jar"]
+FROM maven:3.6.3-jdk-8 AS MAVEN_TOOL_CHAIN
+COPY pom.xml /tmp/
+COPY src /tmp/src/
+WORKDIR /tmp/
+RUN mvn package
+ENTRYPOINT ["sh", "-c", "java -jar /tmp/target/kanban.jar"]
