@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://mytasknow.azurewebsites.net")
+@CrossOrigin(origins = {"https://mytasknow.azurewebsites.net","http://localhost:4200"})
 @RequestMapping("api/v1/issues")
 @RestController
 public class IssuesController {
